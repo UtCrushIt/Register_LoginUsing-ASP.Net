@@ -88,8 +88,8 @@ public partial class Login : System.Web.UI.Page
                 {
                     MailMessage message = new MailMessage();
                     SmtpClient smtp = new SmtpClient();
-                    message.From = new MailAddress("kumarrahul.allduniv@gmail.com");
-                    message.To.Add(new MailAddress(uname.Text));
+                    message.From = new MailAddress("Sender Email");
+                    message.To.Add(new MailAddress(uname.Text));//Receiver Email
                     message.Subject = "Password Recovery For WWW.MYWEB.COM .";
                     message.IsBodyHtml = false; //to make message body as html  
                     message.Body = "We Have Received A Forgot Password Request Linked To This Email Id On WWW.MYWEB.COM.\n Here Is Your Password '" + a.ToString() + "'.\n Please Don't Share With Anyone.\n Thanks.";
@@ -97,7 +97,7 @@ public partial class Login : System.Web.UI.Page
                     smtp.Host = "smtp.gmail.com"; //for gmail host  
                     smtp.EnableSsl = true;
                     smtp.UseDefaultCredentials = true;
-                    smtp.Credentials = new NetworkCredential("kumarrahul.allduniv@gmail.com", "Rm@1749001");
+                    smtp.Credentials = new NetworkCredential("Email", "Password");
                     smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                     smtp.Send(message);
                     err = "A Mail Has Been Sended To Registered Email Id With The Needed Information.";
